@@ -1,0 +1,54 @@
+﻿@model FutureValueModel
+
+@{ ViewData["Title"] = "Future Value Calculator"; }
+
+<div class="container">
+    <h1 class="mt-3 mb-4">@ViewBag.Title</h1>
+    <div class="alert alert-warning alert-dismissible">
+        This site uses cookies <a href="#" class="alert-link">View cookie policy</a>
+        <button class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <form asp-action="Index" method="post">
+        <div class="row">
+            <label asp-for="MonthlyInvestment" class="col-sm-3 form-label">
+                Monthly Investment: </label>
+            <div class="col-sm-3">
+                <input asp-for="MonthlyInvestment" class="form-control" />
+            </div>
+            <span asp-validation-for="MonthlyInvestment" 
+                  class="col text-danger"></span>
+        </div>
+        <div class="row">
+            <label asp-for="YearlyInterestRate" class="col-sm-3 form-label">
+                Yearly Interest Rate:</label>
+            <div class="col-sm-3">
+                <input asp-for="YearlyInterestRate" class="form-control" />
+            </div>
+            <span asp-validation-for="YearlyInterestRate"
+                  class="col text-danger"></span>
+        </div>
+        <div class="row">
+            <label asp-for="Years" class="col-sm-3 form-label">
+                Number of Years: </label>
+            <div class="col-sm-3">
+                <input asp-for="Years" class="form-control" /></div>
+            <span asp-validation-for="Years"
+                  class="col text-danger"></span>
+        </div>
+        <div class="row">
+            <label class="col-sm-3 form-label">Future Value:</label>
+            <div class="col-sm-3">
+                <input value="@ViewBag.FutureValue.ToString("c2")" readonly
+                       class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-sm-3">
+                <button type="submit" class="btn btn-primary">
+                    Calculate</button>
+                <a asp-action="Index"
+                   class="btn btn-secondary">Clear</a>
+            </div>
+        </div>
+    </form>
+</div>

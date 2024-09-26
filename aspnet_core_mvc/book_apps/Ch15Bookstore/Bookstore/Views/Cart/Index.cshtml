@@ -1,0 +1,75 @@
+﻿@model CartViewModel
+
+@{
+    ViewData["Title"] = " | Cart";
+}
+
+<h1>Your Cart</h1>
+
+<form asp-action="Clear" method="post">
+    <ul class="list-group mb-4">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    Subtotal: @Model.Subtotal.ToString("c")
+                </div>
+                <div class="col">
+                    <div class="float-end">
+                        <a asp-action="Checkout" my-button>Checkout</a>
+                        <button type="submit">Clear Cart</button>
+                        <a asp-action="List" asp-controller="Book">Back to Shopping</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+</form>
+<form asp-action="Remove" method="post">
+    <table class="table">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>Title</th>
+                <th>Author(s)</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CartItem item in Model.List)  {
+                @* use detail link view components rather than partial views here bc cart 
+                    objects are BookDTO and Dictionary<int, string>, not Book and Author *@
+                <tr>
+                    <td>
+                        <vc:book-details-link id="@item.Book.BookId"
+                            title="@item.Book.Title"></vc:book-details-link>
+                    </td>
+                    <td>
+                        @foreach (var pair in item.Book.Authors) {
+                            <p>
+                                <vc:author-details-link id="@pair.Key"
+                                    name="@pair.Value"></vc:author-details-link>
+                            </p>
+                        }
+                    </td>
+                    <td>@item.Book.Price.ToString("c")</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Subtotal.ToString("c")</td>
+                    <td>
+                        <div class="float-end">
+                            <a asp-action="Edit" asp-controller="Cart"
+                               asp-route-id="@item.Book.BookId"
+                               asp-route-slug="@item.Book.Title.Slug()"
+                               my-button>Edit</a>
+                            <button type="submit" name="id" value="@item.Book.BookId">
+                                Remove
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

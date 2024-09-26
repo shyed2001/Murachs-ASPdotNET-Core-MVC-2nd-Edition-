@@ -1,0 +1,9 @@
+﻿@model int
+
+@{
+    string action = (@Model == 0) ? "Add" : "Update";
+}
+
+<div>
+    Admin area, Product controller, @action action, AddUpdate.cshtml view, id = @Model
+</div>

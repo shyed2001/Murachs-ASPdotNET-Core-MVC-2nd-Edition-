@@ -1,0 +1,32 @@
+﻿@model  IEnumerable<Book>
+
+@{
+    ViewData["Title"] = " | Related Books";
+}
+
+<h1 class="mb-2">Related Books</h1>
+
+<table class="table">
+    <tbody>
+        @foreach (var book in Model) {
+        <tr>
+            <td>
+                <partial name="_BookLinkPartial" model="@book" >
+            </td>
+            <td>@book.Genre.Name</td>
+            <td>
+                @foreach(var a in book.Authors)
+                {
+                    <div>@a.FullName</div>
+                }
+            </td>
+            <td>
+                <div class="float-end">
+                    <a asp-action="Edit" asp-route-id="@book.BookId" my-button>Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.BookId" my-button>Delete</a>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

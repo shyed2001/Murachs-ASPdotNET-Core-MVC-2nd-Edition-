@@ -1,0 +1,11 @@
+﻿body {
+    margin-top: 0.5em;
+}
+
+main, footer {
+    padding: 0 0.5em;
+}
+
+a {
+    text-decoration: none;
+}

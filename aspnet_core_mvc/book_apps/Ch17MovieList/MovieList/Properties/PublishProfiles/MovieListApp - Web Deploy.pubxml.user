@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJuIT0q2N9kK0taqgyXODYgAAAAACAAAAAAAQZgAAAAEAACAAAADQgsZzTY1/fh4N1O2xb4lP7ntqqD/io60xHZaPYrfDxgAAAAAOgAAAAAIAACAAAAD9iNrseCthRzGHMXMtaVtT1zuJJi4ep5crrjWafkstX4AAAADo2RwOkafKIyWp5hiLPaEz2/n6KU7acfeUv7U4ys6faxK0bWhWFkwTPnyt4rQbsZaGHLBA0CPTVFJc67gCimPJtmp279CoDrMD3cBEdaXQqgMrJZlDLIlbf7pzq0/ikmH0ov1RW2ghLCpevKiLaOtpfZOgWVon6gewWctH99QpdkAAAAD0Etmw970jbgmgJPpOa6iBU2xW0lZgd+nuCxLLfrMsHCMhzbmnDF7kxu2HsnJYA5IBpkSxYTDVCvUkTC4ioOH0</EncryptedPassword>
+    <History>True|2022-06-06T23:38:51.1904139Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="MovieContext">
+      <Value>Data Source=tcp:movielist-dbserver.database.windows.net,1433%3bInitial Catalog=MovieList_db%3bUser Id=movie-user%40movielist-dbserver%3bPassword=P2ssw0rd</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="MovieList.Models.MovieContext">
+      <Value>Data Source=tcp:movielist-dbserver.database.windows.net,1433%3bInitial Catalog=MovieList_db%3bUser Id=movie-user%40movielist-dbserver%3bPassword=P2ssw0rd</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

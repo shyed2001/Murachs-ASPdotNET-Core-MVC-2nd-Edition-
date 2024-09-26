@@ -1,0 +1,31 @@
+﻿@model Book
+
+@{
+    ViewData["Title"] = " | Book Details";
+}
+
+<h1>Book Details</h1>
+
+<table class="table table-bordered table-sm">
+    <thead>
+        <tr class="bg-dark text-white">
+            <th>Title:</th><th>@Model.Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@(Model.Authors.Count > 1 ? "Authors" : "Author")</td>
+            <td>
+                @foreach (Author author in Model.Authors) {
+                    <p><partial name="_AuthorLinkPartial" model="@author" /></p>
+                }
+            </td>
+        </tr>
+        <tr><td>Price:</td><td>@Model.Price.ToString("c")</td></tr>
+        <tr><td>Genre:</td><td>@Model.Genre.Name</td></tr>
+    </tbody>
+</table>
+
+<form asp-action="Add" asp-controller="Cart" method="post">
+    <button type="submit" name="id" value="@Model.BookId">Add To Cart</button>
+</form>

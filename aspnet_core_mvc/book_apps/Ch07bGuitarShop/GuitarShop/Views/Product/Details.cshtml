@@ -1,0 +1,10 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product Details";
+}
+<h1>Product Details</h1>
+<div>ID: @Model.ProductID</div>
+<div>Name: @Model.Name</div>
+<div>Category: @Model.Category.Name</div>
+<div>Price: @Model.Price.ToString("C2")</div>
+<a asp-controller="Home" asp-action="Index">Home</a>

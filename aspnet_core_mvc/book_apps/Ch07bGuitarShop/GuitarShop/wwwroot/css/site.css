@@ -1,0 +1,12 @@
+﻿body {
+    /*margin-top: 0.5em;*/
+    margin-top: 70px;  /* needed for fixed-top Bootstrap navbar */
+}
+
+main, footer {
+    padding: 0 0.5em;
+}
+
+a {
+    text-decoration: none;
+}

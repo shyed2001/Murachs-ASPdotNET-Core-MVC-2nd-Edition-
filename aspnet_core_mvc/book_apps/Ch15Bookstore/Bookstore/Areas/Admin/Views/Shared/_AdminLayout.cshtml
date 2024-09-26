@@ -1,0 +1,30 @@
+﻿@{
+    // nested layout view
+    Layout = "_Layout";
+}
+
+@* since many admin views deal with user entry and data validation,
+   jQuery validation libraries are included here rather than in individual views. *@
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<ul class="nav nav-tabs mt-2 mb-3">
+    <li class="nav-item">
+        <a class="nav-link" asp-action="Index" asp-controller="Book" asp-area="Admin">
+            Manage Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-action="Index" asp-controller="Author" asp-area="Admin">
+            Manage Authors
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-action="Index" asp-controller="Genre" asp-area="Admin">
+            Manage Genres
+        </a>
+    </li>
+</ul>
+
+@RenderBody()

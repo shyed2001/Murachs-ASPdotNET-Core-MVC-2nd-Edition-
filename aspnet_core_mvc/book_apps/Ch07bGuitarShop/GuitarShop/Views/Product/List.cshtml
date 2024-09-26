@@ -1,0 +1,54 @@
+﻿@model List<Product>
+@{
+    Layout = "_ProductLayout";
+    ViewData["Title"] = "Product List";
+}
+
+@*<h1>Product List</h1>
+@if (ViewBag.Categories != null)
+{
+    foreach (Category c in ViewBag.Categories)
+    {
+        <a asp-controller="Product" asp-action="List"
+           asp-route-id="@c.Name">@c.Name</a><text> | </text>
+    }
+}
+<a asp-controller="Product" asp-action="List"
+   asp-route-id="All">All</a>
+<hr />*@
+
+@if (@ViewBag.SelectedCategory == "All")
+{
+    <h2>All Products</h2>
+}
+else
+{
+    <h2>@ViewBag.SelectedCategory</h2>
+}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in @Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("C")</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Details"
+                       asp-route-id="@product.ProductID">View</a>
+                </td>
+                <td>
+                    <a asp-controller="Product" asp-action="Update"
+                       asp-route-id="@product.ProductID">Update</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

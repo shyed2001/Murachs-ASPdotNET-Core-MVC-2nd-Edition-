@@ -1,0 +1,21 @@
+﻿@model TeamsViewModel
+@{
+    ViewData["Title"] = "Change User Name";
+}
+
+<div class="text-center">
+    <h2>Change user name</h2>
+    <form asp-action="Change" method="post">
+        <input asp-for="UserName" placeholder="Type name here" 
+           class="mb-3" /><br />
+        <button type="submit" class="btn btn-primary">
+            Change Name
+        </button>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary"
+           asp-route-activeConf="@Model.ActiveConf"
+           asp-route-activeDiv="@Model.ActiveDiv">
+            Back to Home Page
+        </a>
+    </form>
+    <br />
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1lQsMM17Eqn7pik9S1Y+AAAAAACAAAAAAADZgAAwAAAABAAAADb7zegpahz7t+/m1VZN3fYAAAAAASAAACgAAAAEAAAAAwVQGID7uUSMxmjpRGxlQWAAAAAhuml80iYim3BqgUlVg5lIOQMIIAv5EK0eGsYL9Pw84i4VU9A/YD8S+DQcxPmIOm/p7DleUScDfSt4xcOLPrsbZLM+XBU+fAL2UHF/itCM2iyNOC9gf/yYJMKDGgGXJFQU2q6BdMLaTu04IMZ1J9Kq4wO7Jnzvqwgg1p1GRtuOzcUAAAAlWYfsp1lVpkHHXQf5l5m9g3ShY8=</EncryptedPassword>
+    <History>True|2022-09-01T22:28:42.7494033Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="MovieContext">
+      <Value>Data Source=tcp:movielist-dbserver.database.windows.net,1433%3bInitial Catalog=MovieList_db%3bUser Id=movie-user%40movielist-dbserver%3bPassword=mma!ABoehm</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="MovieList.Models.MovieContext">
+      <Value>Data Source=tcp:movielist-dbserver.database.windows.net,1433%3bInitial Catalog=MovieList_db%3bUser Id=movie-user%40movielist-dbserver%3bPassword=mma!ABoehm</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

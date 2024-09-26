@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_Layout";
+
+    string controller =
+        ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string action =
+        ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">My Guitar Shop</a>
+            <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-item nav-link 
+                      @(controller == "Home" && action == "Index" ? "active" : "")"
+                      asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-item nav-link 
+                      @(controller == "Product" ? "active" : "")"
+                      asp-controller="Product" asp-action="List">Products</a>
+                    <a class="nav-item nav-link
+                      @(controller == "Home" && action == "About" ? "active" : "")"
+                      asp-controller="Home" asp-action="About">About</a>
+                </div>
+                <div class="navbar-nav navbar-right">
+                    <a class="nav-item nav-link" 
+                      asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+                </div>
+            </nav>
+        </div>
+    </nav>
+</header>
+<main>
+    @RenderBody()
+</main>

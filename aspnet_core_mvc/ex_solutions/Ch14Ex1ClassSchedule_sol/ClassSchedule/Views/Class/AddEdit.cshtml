@@ -1,0 +1,38 @@
+﻿@model Class
+
+@{
+    ViewData["Title"] = $"{ViewBag.Operation} Class";
+}
+
+<h1 class="display-4">@ViewBag.Operation Class</h1>
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Teacher" class="form-label"></label>
+        <select asp-for="TeacherId" class="form-select"
+                asp-items="@(new SelectList(ViewBag.Teachers,"TeacherId","FullName"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Day" class="form-label"></label>
+        <select asp-for="DayId" class="form-select"
+                asp-items="@(new SelectList(ViewBag.Days,"DayId","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="MilitaryTime" class="form-label"></label>
+        <input asp-for="MilitaryTime" class="form-control" />
+    </div>
+
+    <input type="hidden" asp-for="ClassId" />
+
+    <button type="submit" class="btn btn-dark">Save</button>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-dark">Cancel</a>
+</form>

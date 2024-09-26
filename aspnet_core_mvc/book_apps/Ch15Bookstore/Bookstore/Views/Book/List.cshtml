@@ -1,0 +1,61 @@
+﻿@model BookListViewModel
+
+@{
+    ViewData["Title"] = " | Book Catalog";
+}
+
+<h1>Book Catalog</h1>
+
+<form asp-action="Add" asp-controller="Cart" method="post">
+    <table class="table table-bordered table-striped table-sm">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>
+                    <my-sorting-link sort-field="@nameof(Book.Title)"
+                        current="@Model.CurrentRoute">Title</my-sorting-link>
+                </th>
+                <th>Author(s)</th>
+                <th>
+                    <my-sorting-link sort-field="@nameof(Genre)"
+                        current="@Model.CurrentRoute">Genre</my-sorting-link>
+                </th>
+                <th>
+                    <my-sorting-link sort-field="@nameof(Book.Price)"
+                        current="@Model.CurrentRoute">Price</my-sorting-link>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Book book in Model.Books)
+            {
+                <tr>
+                    <td>
+                        <partial name="_BookLinkPartial" model="@book" />
+                    </td>
+                    <td>
+                        @foreach (var author in book.Authors)
+                        {
+                            <p>
+                                <partial name="_AuthorLinkPartial" model="@author" />
+                            </p>
+                        }
+                    </td>
+                    <td>@book.Genre.Name</td>
+                    <td>@book.Price.ToString("c")</td>
+                    <td>
+                        <button type="submit" name="id" value="@book.BookId">
+                            Add To Cart
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+@{
+    for (int i = 1; i <= Model.TotalPages; i++) {
+        <my-paging-link number="@i" current="@Model.CurrentRoute" />
+    }
+}

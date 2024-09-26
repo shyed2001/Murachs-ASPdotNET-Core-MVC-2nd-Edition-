@@ -1,0 +1,29 @@
+﻿@model Temp
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2 class="p-2">Add temp</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Add" method="post">
+    <div class="mb-2">
+        <label asp-for="Date" class="form-label"></label>
+        <input asp-for="Date" class="form-control" type="text" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Low" class="form-label"></label>
+        <input asp-for="Low" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="High" class="form-label"></label>
+        <input asp-for="High" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <button type="submit" class="btn btn-dark mr-2">Add</button>
+        <a asp-action="Index" class="btn btn-dark">Cancel</a>
+    </div>
+</form>
+

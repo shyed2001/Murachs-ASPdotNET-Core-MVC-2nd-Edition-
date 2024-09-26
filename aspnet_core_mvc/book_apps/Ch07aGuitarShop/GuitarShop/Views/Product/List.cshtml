@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Product List";
+}
+<h1>Product List</h1>
+<div class="list-group">
+    <p>Category: @ViewBag.Category</p>
+    
+    <a asp-action="Details" 
+       asp-route-id="Fender-Stratocaster">View Fender Stratocaster</a>
+
+    <a asp-controller="Home" asp-action="Index">Home</a>
+</div>

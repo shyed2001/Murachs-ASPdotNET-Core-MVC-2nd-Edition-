@@ -1,0 +1,74 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="Register">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Username:</label>
+        <div class="col-md-4">
+            <input asp-for="Username" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">First Name:</label>
+        <div class="col-md-4">
+            <input asp-for="Firstname" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Firstname" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Last Name:</label>
+        <div class="col-md-4">
+            <input asp-for="Lastname" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Lastname" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Email Address:</label>
+        <div class="col-md-4">
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Password:</label>
+        <div class="col-md-4">
+            <input type="password" asp-for="Password" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Confirm Password:</label>
+        <div class="col-md-4">
+            <input type="password" asp-for="ConfirmPassword"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-md-2">
+            Already registered? <a asp-action="LogIn">Log In</a>
+        </div>
+    </div>
+
+</form>

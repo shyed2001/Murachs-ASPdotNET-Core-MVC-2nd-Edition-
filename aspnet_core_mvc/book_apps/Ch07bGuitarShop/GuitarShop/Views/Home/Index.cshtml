@@ -1,0 +1,24 @@
+﻿@{
+    //Layout = "_MainLayout";
+    ViewData["Title"] = "Home";
+}
+@*<div>Price: @ViewBag.Price.ToString("C")</div>
+<div>Discount Percent: @ViewBag.DiscountPercent.ToString("P1")</div>
+<div>Quantity: @ViewBag.Quantity.ToString("N0")</div>*@
+
+<h1>Welcome to the Guitar Shop!</h1>
+
+<p>Make yourself at home and check out some cool instruments.</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="list-group">
+            <a asp-controller="Product" asp-action="List"
+               class="list-group-item">View our products</a>
+            <a asp-controller="Home" asp-action="About"
+               class="list-group-item">Learn more about us</a>
+        </div>
+    </div>
+</div>
+
+@*<p>Welcome to the Guitar Shop!</p>*@

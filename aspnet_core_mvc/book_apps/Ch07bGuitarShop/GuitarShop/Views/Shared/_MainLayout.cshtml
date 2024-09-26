@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_Layout";
+    string c = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string a = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">My Guitar Shop</a>
+            <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-item nav-link 
+                    @(c == "Home" && a == "Index" ? "active" : "")"
+                    asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-item nav-link 
+                    @(c == "Product" ? "active" : "")"
+                    asp-controller="Product" asp-action="List">Products</a>
+                    <a class="nav-item nav-link
+                    @(c == "Home" && a == "About" ? "active" : "")"
+                    asp-controller="Home" asp-action="About">About</a>
+                </div>
+            </nav>
+        </div>
+    </nav>
+    @*<a asp-controller="Home" asp-action="Index">Home</a> |
+    <a asp-controller="Product" asp-action="List" 
+       asp-route-id="All">Products</a> |
+    <a asp-controller="Home" asp-action="About">About</a>
+    <hr />*@
+</header>
+
+<main>
+    @RenderBody()
+</main>
+
+<footer>
+    <hr />
+    <p>&copy; @DateTime.Now.Year - Guitar Shop</p>
+</footer>
+
+@section scripts {
+    @RenderSection("scripts", required:false)
+}

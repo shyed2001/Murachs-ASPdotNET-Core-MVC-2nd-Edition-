@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Books with "Pride" in the title</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th><th>Author(s)</th><th>Genre</th><th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Book book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>
+                    @foreach (Author author in book.Authors)
+                    {
+                        @author.FullName<br />
+                    }
+                </td>
+                <td>@book.Genre.Name</td>
+                <td>@book.Price.ToString("c")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-route-id="test">Test concurrency</a>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+

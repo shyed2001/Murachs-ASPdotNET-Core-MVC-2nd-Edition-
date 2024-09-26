@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Day>
+
+@foreach (Day d in Model)
+{
+    <my-link-button action="Index" id="@d.DayId"
+        class="me-1 mb-2">@d.Name</my-link-button>
+}

@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_MainLayout";
+}
+
+<h1>Product List</h1>
+@if (ViewBag.Categories != null)
+{
+    foreach (Category c in ViewBag.Categories)
+    {
+        <a asp-controller="Product" asp-action="List"
+           asp-route-id="@c.Name">@c.Name</a><text> | </text>
+    }
+    <a asp-controller="Product" asp-action="List"
+       asp-route-id="All">All</a>
+}
+<hr />
+
+@RenderBody()
